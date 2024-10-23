@@ -56,13 +56,13 @@ public class UserController {
         } else {
             StringBuilder userNames = new StringBuilder("Users found names are: ");
             for (User user : userList) {
-                userNames.append(user.getName()).append(", "); // Append each user's name
+                userNames.append(user.getName()).append(", "); 
             }
-            // Remove the last comma and space
+            
             userNames.setLength(userNames.length() - 2);
 
             jmsTemplate.convertAndSend("users.queue", userNames.toString());
-            return ResponseEntity.status(HttpStatus.OK).body(userList); // Return 200 OK
+            return ResponseEntity.status(HttpStatus.OK).body(userList); 
         }
     }
 
